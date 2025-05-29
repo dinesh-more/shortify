@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "shortify",
+    "_postman_id": "12345678-abcd-ef00-1234-56789abcdef0",
+    "description": "Postman collection for Short URL AWS Lambda + API Gateway service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Short URL",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://dinesh-more.github.io/\"\n}"
+        },
+        "url": {
+          "raw": "https://your-api-id.execute-api.ap-south-1.amazonaws.com/shorten",
+          "protocol": "https",
+          "host": [
+            "your-api-id",
+            "execute-api",
+            "ap-south-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "shorten"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Redirect Short URL",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://your-api-id.execute-api.ap-south-1.amazonaws.com/{{shortCode}}",
+          "protocol": "https",
+          "host": [
+            "your-api-id",
+            "execute-api",
+            "ap-south-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "{{shortCode}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "shortCode",
+      "value": "abc123",
+      "type": "string"
+    }
+  ]
+}
